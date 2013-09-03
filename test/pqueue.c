@@ -3,7 +3,7 @@
 #include <time.h>
 #include <assert.h>
 
-#include "../src/pqueue.h"
+#include "../utils.h"
 
 typedef struct test{
 	int i;
@@ -35,7 +35,7 @@ int main () {
 	// test on successive insertion
 	puts ("\n\ttest n1") ;
 
-	pqueue_s *q = NULL;
+	pqueue *q = NULL;
 	test* t = NULL;
 	int i, j;
 
