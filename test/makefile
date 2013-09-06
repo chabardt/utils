@@ -5,7 +5,7 @@ EXE	= $(SRC:.c=.exe)
 all: $(EXE)
 
 %.exe: %.c
-	$(CC) $(CFLAGS) -o ../$@ $< ../$(LIB)
+	$(CC) $(CFLAGS) -o ../$@ $< ../$(LIB) -lm
 
 clean:
 	rm -f ../*.exe

@@ -84,7 +84,7 @@ pqueue* pqueue_new_with_data (	int (*p_cmp) (const void* d1, const void* d2),
 	result->size = i ;
 
 	// the heap propriety
-	for (i=result->size/2; i>=0; i--) {
+	for (i=result->size/2; i>=0; --i) {
 		heapify (result, i) ;
 	}
 	return result ;
@@ -130,6 +130,10 @@ void* pqueue_peek (pqueue *q) {
 	return q->data[0] ;
 }
 
+int pqueue_size (pqueue* q) {
+	return q->size ;
+}
+
 int pqueue_is_empty (pqueue* q) {
 	return q->size < 1 ;
 }
@@ -137,7 +141,7 @@ int pqueue_is_empty (pqueue* q) {
 void pqueue_display (pqueue* q, void (*display) (const void* d)) {
 	assert (q != NULL && display != NULL) ;
 	int i = 0 ;
-	for (i=0 ; i<q->size; i++) {
+	for (i=0 ; i<q->size; ++i) {
 		display (q->data[i]) ;
 	}
 }

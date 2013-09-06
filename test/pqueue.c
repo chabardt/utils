@@ -43,11 +43,11 @@ int main () {
 
 	q = pqueue_new (10, test_cmp);
 
-	for (i=0; i<10; i++) {
+	for (i=0; i<10; ++i) {
 		t = test_new(rand()%20+1) ;
 		pqueue_insert (q, t) ;
 	}
-	for (i=0; i<10; i++) {	
+	for (i=0; i<10; ++i) {	
 		t = (test*)pqueue_pop(q);
 		printf ("%d\n", ((test*)t)->i) ;
 		test_delete (t);
@@ -61,7 +61,7 @@ int main () {
 	q = NULL;
 	test **tab = NULL;
 	tab = (test**) malloc (20*sizeof(test*));
-	for (i=0; i<20; i++) {
+	for (i=0; i<20; ++i) {
 		if (rand()%2) {
 			tab[i] = NULL ;
 			puts ("NULL") ;
@@ -85,7 +85,7 @@ int main () {
 		printf ("\n Insertion ");
 		q = pqueue_new (i, test_cmp);
 
-		for (j=0; j<i; j++) {
+		for (j=0; j<i; ++j) {
 			t = test_new(rand()%i+1) ;
 			pqueue_insert (q, t) ;
 		}
@@ -93,7 +93,7 @@ int main () {
 	
 		printf ("\n Allocation ");
 		tab = (test**) malloc (i*sizeof(test*));
-		for (j=0; j<i; j++) {
+		for (j=0; j<i; ++j) {
 			if (rand()%2) {
 				tab[j] = NULL ;
 			} else {
