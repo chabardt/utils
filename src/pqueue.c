@@ -92,6 +92,11 @@ pqueue* pqueue_new_with_data (	int (*p_cmp) (const void* d1, const void* d2),
 
 void pqueue_delete (pqueue* q) {
 	if (q == NULL) return ;
+
+	int i = 0 ;
+	for (i=0; i<q->size; ++i) {
+		free (q->data[i]) ;
+	}
 	free (q->data) ;
 	free (q) ;
 }

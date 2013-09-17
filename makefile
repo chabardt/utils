@@ -1,6 +1,6 @@
 export CC	= gcc
 export AR	= ar
-export CFLAGS	= -Wall -pedantic -std=c99
+export CFLAGS	= -g -Wall -pedantic -std=c99
 export AFLAGS	= -cvq
 export DEST	= /home/theodore/Workspace/c99/
 

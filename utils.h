@@ -6,12 +6,16 @@
 // BINARY NUMBER MANIPULATION
 
 typedef struct binary {
+	unsigned int c ;
 	unsigned int l ;
 	unsigned char *bytes ;
 } binary ;
 
+// Constructor
+binary* binary_new (unsigned char* data, unsigned int l, unsigned int c) ;
+
 // Store a binary coded with ascii chars in a bytes array. User-Friendly implementation.
-binary* binary_new (char *str, unsigned int l) ;
+binary* binary_new_with_str (char *str, unsigned int l, unsigned int c) ;
 
 void binary_delete (binary *b) ;
 
@@ -19,9 +23,26 @@ void binary_delete (binary *b) ;
 int binary_cpy (	binary *des, 
 			binary *src,
 			int offset) ;
+int binary_cpy_data (	binary *des, 
+			unsigned char *src,
+			unsigned int l,
+			int offset) ;
+
+void binary_lshift (	binary *b,
+			unsigned int l) ;
+
+void binary_rshift (	binary *b,
+			unsigned int l) ;
+
+// return 0 if equal, or the number of different bytes (not bits).
+int binary_cmp (	binary *b1,
+			binary *b2,
+			size_t num) ;
+
+void binary_clear (binary *b) ;
 
 // Send '0' or '1'. User_Friendly implementation.
-char binary_read_next_bit (	binary *b,
+char binary_read_bit (	binary *b,
 				size_t offset) ;
 
 // For debugging purpose.
